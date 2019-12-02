@@ -1,0 +1,30 @@
+﻿@using HomeWork2019._12._03.Models
+@{
+    ViewBag.Title = "Index";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Descrption</td>
+            <td>Tag</td>
+            <td>IsDone</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Task task in ViewBag.Data)
+        {
+            <tr>
+                <td>@task.Id</td>
+                <td>@task.Name</td>
+                <td>@task.Description</td>
+                <td>@task.Tag</td>
+                <td><input data-taskId="@task.Id" type="checkbox" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/Task/Add">Add</a><br />
+<a href="/Task/Search">Search</a>

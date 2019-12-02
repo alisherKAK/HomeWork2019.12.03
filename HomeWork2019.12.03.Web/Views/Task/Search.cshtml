@@ -1,0 +1,36 @@
+﻿@using HomeWork2019._12._03.Models
+@{
+    ViewBag.Title = "Search";
+}
+
+    <form action="/Task/Search" method="get">
+        Name: <input type="text" name="name" value="" /><br />
+        <input type="submit" name="sub" value="Search" />
+    </form>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Descrption</td>
+                    <td>Tag</td>
+                    <td>IsDone</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Task task in ViewBag.Data)
+                {
+                    <tr>
+                        <td>@task.Id</td>
+                        <td>@task.Name</td>
+                        <td>@task.Description</td>
+                        <td>@task.Tag</td>
+                        <td><input data-taskId="@task.Id" type="checkbox" /></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <a href="/Task/Index">Index</a>
+
